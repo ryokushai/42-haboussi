@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 16:30:22 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/11 17:39:57 by haboussi         ###   ########.fr       */
+/*   Created: 2019/11/14 13:19:10 by haboussi          #+#    #+#             */
+/*   Updated: 2019/11/14 13:27:01 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef _FT_PRINTF_H
+# define _LIBFT_H
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <string.h>
 #include <stdarg.h>
 
-int		ft_printf(int num, ...)
-{
-	va_list		arguments;
-	double		sum;
-	int			x;
+void	ft_printf(char *format, ...);
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+char	*ft_itoa(int n);
 
-	x = 0;
-	sum = 0;
-	va_start(arguments, num);
-	while (x < num)
-	{
-		sum += va_arg(arguments, double);
-		x++;
-	}
-	va_end(arguments);
-	return (sum / num);
-}
-
-int main()
-{
-	printf("%f", ft_printf(5.2 ,3.3, 5, 0.5, 0.1 ));
-}
+#endif

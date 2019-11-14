@@ -6,13 +6,13 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 23:36:50 by haboussi          #+#    #+#             */
-/*   Updated: 2019/10/22 21:14:38 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/11/14 13:23:25 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static char	*ft_strrev(char *str)
+char	*ft_strrev(char *str)
 {
 	int		i;
 	int		k;
@@ -37,7 +37,7 @@ static char	*ft_strrev(char *str)
 	return (str);
 }
 
-static char	*ft_strrev2(char *str)
+char	*ft_strrev2(char *str)
 {
 	int		i;
 	int		k;
@@ -62,7 +62,7 @@ static char	*ft_strrev2(char *str)
 	return (str);
 }
 
-static int	ft_length(int n)
+int	ft_length(int n)
 {
 	int	i;
 	int s;
@@ -77,7 +77,7 @@ static int	ft_length(int n)
 	return (i);
 }
 
-static char	*ft_stock(int n, char *dest)
+char	*ft_stock(int n, char *dest)
 {
 	unsigned int	f;
 	int				i;
