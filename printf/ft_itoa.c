@@ -6,36 +6,11 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 23:36:50 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/14 13:23:25 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/11/14 14:58:33 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_strrev(char *str)
-{
-	int		i;
-	int		k;
-	int		j;
-	char	temp;
-
-	i = 1;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	k = 1;
-	j = i - 1;
-	while (k < j)
-	{
-		temp = str[k];
-		str[k] = str[j];
-		str[j] = temp;
-		k++;
-		j--;
-	}
-	return (str);
-}
 
 char	*ft_strrev2(char *str)
 {
@@ -60,21 +35,6 @@ char	*ft_strrev2(char *str)
 		j--;
 	}
 	return (str);
-}
-
-int	ft_length(int n)
-{
-	int	i;
-	int s;
-
-	s = n;
-	i = 0;
-	while (s != 0)
-	{
-		s = s / 10;
-		i++;
-	}
-	return (i);
 }
 
 char	*ft_stock(int n, char *dest)
@@ -107,7 +67,7 @@ char		*ft_itoa(int n)
 	int		len;
 	char	*dest;
 
-	len = ft_length(n);
+	len = ft_lenght(n);
 	if (n < 0)
 	{
 		if (!(dest = malloc(sizeof(char) * (len + 2))))

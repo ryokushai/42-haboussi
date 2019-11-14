@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 17:45:57 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/14 14:10:03 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/11/14 14:46:21 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,16 @@ void		ft_printf(char *format, ...)
 		{
 			j = va_arg(arg, int);
 			ft_itoa(j);
+		}
+		if (*lol == 'x')
+		{
+			j = va_arg(arg, int);
+			ft_itohexa(j);
+		}
+		if (*lol == 'X')
+		{
+			j = va_arg(arg, int);
+			ft_itohexa2(j);
 		}
 		lol++;
 	}

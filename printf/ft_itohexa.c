@@ -6,49 +6,11 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 14:18:31 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/14 14:36:55 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/11/14 14:41:03 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_strrev(char *str)
-{
-	int		i;
-	int		k;
-	int		j;
-	char	temp;
-
-	i = 0;
-	while (str[i])
-		i++;
-	k = 0;
-	j = i - 1;
-	while (k < j)
-	{
-		temp = str[k];
-		str[k] = str[j];
-		str[j] = temp;
-		k++;
-		j--;
-	}
-	return (str);
-}
-
-int		ft_lenght(int n)
-{
-	int	i;
-	int	s;
-
-	s = n;
-	i = 0;
-	while (s != 0)
-	{
-		s = s / 10;
-		i++;
-	}
-	return i;
-}
 
 char	*ft_itohexa(int n)
 {
