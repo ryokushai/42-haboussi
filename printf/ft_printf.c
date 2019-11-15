@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 17:45:57 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/14 14:46:21 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/11/14 20:20:53 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void		ft_printf(char *format, ...)
 	int		i;
 	int		j;
 	char	*lol;
+	unsigned long long		u;
 
 	i = 0;
 	va_start(arg, format);
@@ -57,6 +58,11 @@ void		ft_printf(char *format, ...)
 		{
 			j = va_arg(arg, int);
 			ft_itohexa2(j);
+		}
+		if (*lol == 'p')
+		{
+			u = va_arg(arg, unsigned long long);
+			ft_adress(u);
 		}
 		lol++;
 	}

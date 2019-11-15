@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 14:08:57 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/14 14:46:25 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/11/14 20:34:45 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	main()
 {
-	printf("%X", 89787897);
+	char ptr[50] = "dskgggggggggggggggggg";
+	printf("%p\n", &ptr);
+	ft_printf("%p", &ptr);
 }

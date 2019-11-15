@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 23:36:50 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/14 14:58:33 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/11/14 19:55:27 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strrev2(char *str)
 	return (str);
 }
 
-char	*ft_stock(int n, char *dest)
+char	*ft_stock_int(int n, char *dest)
 {
 	unsigned int	f;
 	int				i;
@@ -86,6 +86,6 @@ char		*ft_itoa(int n)
 		if (!(dest = malloc(sizeof(char) * (len + 1))))
 			return (NULL);
 	}
-	dest = ft_stock(n, dest);
+	dest = ft_stock_int(n, dest);
 	return (n < 0 ? ft_strrev(dest) : ft_strrev2(dest));
 }
