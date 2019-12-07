@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 13:19:10 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/14 20:20:06 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/11/24 16:00:34 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <string.h>
 #include <stdarg.h>
 
+char	*ft_substr(char *s, int start, int len);
+void	ft_skip(char *str);
+char	*ft_strchr(char *str, int c);
+int		ft_strlen(char *str);
+int		ft_strlcpy(char *dst, char *src, int n);
 void	ft_printf(char *format, ...);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
@@ -28,4 +33,5 @@ int		ft_lenght(int n);
 char	*ft_strrev(char *str);
 char	*ft_stock(char *s1, char *s2);
 char	*ft_adress(unsigned long long n);
+char	*ft_conditions(char *str);
 #endif

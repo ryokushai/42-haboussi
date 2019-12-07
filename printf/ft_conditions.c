@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_conditions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/14 14:08:57 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/07 18:06:33 by haboussi         ###   ########.fr       */
+/*   Created: 2019/11/24 14:55:44 by haboussi          #+#    #+#             */
+/*   Updated: 2019/12/06 23:07:28 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main()
+char	*ft_conditions(char *str)
 {
-	ft_printf("%0.s", "lpp");	
+	char 	*tab;
+	char	*ptr;
+	char	*result;
+	char	*ktr;
+	int		count;
+
+	count = 0;
+	ktr = str;
+	tab = "cspidux";
+	while (*ktr)
+	{
+		if (!(strchr(tab,*ktr)))
+		{
+			count++;
+		}
+		ktr++;
+	}
+	result = ft_substr(str,0,count);
+	return result;	
 }
