@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 17:45:57 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/07 18:26:48 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/07 23:41:21 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void		ft_printf(char *format, ...)
 	char	*conv;
 	unsigned long long		u;
 	int num;
+	char	*flags;
 	i = 0;
 	va_start(arg, format);
 	str = format;
@@ -36,7 +37,9 @@ void		ft_printf(char *format, ...)
 		}
 		str++;
 		conv = ft_conditions(str);
-		num = strlen(zabr);
+		flags = ft_precision(conv);		
+		printf("%s\n", flags);
+		num = strlen(conv);
 		str = str + num;
 		if (*str == 'c')
 		{
