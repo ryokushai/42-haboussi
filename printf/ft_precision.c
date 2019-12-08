@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 20:55:50 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/07 23:57:59 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/08 03:41:48 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,19 @@ char	*ft_precision(char *str)
 	
 	i = 0;
 	count = 0;
-	tab = ft_strchr(str, '.');
-	printf("%s\n", tab);
-	while (ft_isdigit(str[i]))
+	if(!(tab = strchr(str, '.')))
+	{
+		return (NULL);
+	}
+	tab++;
+	while ((ft_isdigit(tab[i])))
 	{
 		count++;
 		i++;
 	}
 	precision = malloc(sizeof(char) * (count + 1));
-	ft_strlcpy(precision, str, count + 1);
-	//printf("%d\n",count);
-	//printf("%s\n", precision);
+	ft_strlcpy(precision, tab, count + 1);
+	printf("%d\n",count);
+	printf("%s\n", precision);
 	return precision;
 }
