@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 17:45:57 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/08 03:42:10 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/10 03:28:34 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void		ft_printf(char *format, ...)
 	unsigned long long		u;
 	int num;
 	char	*flags;
+	char	*stock;
 	i = 0;
 	va_start(arg, format);
 	str = format;
@@ -37,9 +38,8 @@ void		ft_printf(char *format, ...)
 		}
 		str++;
 		conv = ft_conditions(str);
-		flags = ft_precision(conv);
-	//	printf("%s\n", conv);		
-		printf("%s\n", flags);
+	//	ft_active(stock, conv);
+		//printf("%s\n", conv);		
 		num = strlen(conv);
 		str = str + num;
 		if (*str == 'c')
@@ -54,8 +54,8 @@ void		ft_printf(char *format, ...)
 		}
 		if (*str == 'd')
 		{
-			j = va_arg(arg, int);
-			ft_itoa(j);
+			stock = ft_itoa(va_arg(arg, int));
+			printf("let's debug this shit %s\n", stock);
 		}
 		if (*str == 'x')
 		{
@@ -73,6 +73,8 @@ void		ft_printf(char *format, ...)
 			ft_adress(u);
 		}
 		str++;
+		ft_active(stock, conv);
+		printf("conv debug%s\n", conv);
 	}
 	va_end(arg);
 }

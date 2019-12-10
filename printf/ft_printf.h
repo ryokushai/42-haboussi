@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 13:19:10 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/07 21:03:13 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/08 05:53:56 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 char	*ft_flags(char *str);
 int     ft_isdigit(int c);
+char	*ft_width(char *str);
 char	*ft_precision(char *str);		
 char	*ft_substr(char *s, int start, int len);
 void	ft_skip(char *str);

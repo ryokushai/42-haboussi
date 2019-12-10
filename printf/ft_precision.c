@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 20:55:50 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/08 03:41:48 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/08 05:45:38 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ char	*ft_precision(char *str)
 	}
 	precision = malloc(sizeof(char) * (count + 1));
 	ft_strlcpy(precision, tab, count + 1);
-	printf("%d\n",count);
-	printf("%s\n", precision);
 	return precision;
 }

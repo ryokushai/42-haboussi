@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 23:36:50 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/06 19:38:26 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/09 22:10:42 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,5 @@ char		*ft_itoa(int n)
 			return (NULL);
 	}
 	dest = ft_stock_int(n, dest);
-	ft_putstr(n < 0 ? ft_strrev(dest) : ft_strrev2(dest));
+	return (n < 0 ? ft_strrev(dest) : ft_strrev2(dest));
 }
