@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 17:45:57 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/11 05:04:57 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/11 09:02:47 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void		ft_printf(char *format, ...)
 		}
 		str++;
 		ft_active(stock, conv);
-		//printf("conv debug%s\n", conv);
+		printf("conv stock %d\n", atoi(stock));
 	}
 	va_end(arg);
 }
