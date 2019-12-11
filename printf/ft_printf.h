@@ -19,6 +19,8 @@
 #include <stdarg.h>
 
 char	*ft_flags(char *str);
+void	ft_active(char *stock, char *conv);
+void	ft_active_all(char	*conv, char **stock,char **number, int i);
 int     ft_isdigit(int c);
 char	*ft_width(char *str);
 char	*ft_precision(char *str);		
