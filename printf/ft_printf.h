@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 13:19:10 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/08 05:53:56 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/11 10:24:18 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <stdarg.h>
 
 char	*ft_flags(char *str);
+char	*ft_delete_zero(char *conv);
+char	*ft_adress(unsigned long long n);
 void	ft_active(char *stock, char *conv);
 void	ft_active_all(char	*conv, char **stock,char **number, int i);
 int     ft_isdigit(int c);

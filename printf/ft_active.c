@@ -12,27 +12,11 @@
 
 #include "ft_printf.h"
 
-void	ft_active_all(char	*conv, char **stock,char **number, int i)
-{
-	char	*add;
-	int		len;
+//char *add;
 
-	if (atoi(*number) == 0 && atoi(*stock) == 0)
-	{
-		*stock = "";
-		printf("%s", *stock);
-		free(*number);
-		*number = NULL;
-		return ;
-	}
-	len = atoi(*number) - ft_strlen(*stock);
-	free(*number);
-	*number = NULL;
-	
-	if (len <= 0)
-		return ;
-	add = malloc(len + 1);
-	
+/*
+void	ft_active_all_1(char *conv, char **stock, int len, int i)
+{
 	if (conv[i] == '0')
 	{
 		memset(add, '0', len);
@@ -48,7 +32,7 @@ void	ft_active_all(char	*conv, char **stock,char **number, int i)
 	if (conv[i] == '-')
 	{
 		memset(add, ' ', len);
-		*stock= ft_stock(*stock, add);
+		*stock = ft_stock(*stock, add);
 	
 	}
 	if (conv[i] == '.')
@@ -56,7 +40,52 @@ void	ft_active_all(char	*conv, char **stock,char **number, int i)
 		memset(add, '0', len);
 		*stock = ft_stock(add, *stock);
 	}
+}
+*/
+void	ft_active_all(char	*conv, char **stock,char **number, int i)
+{
+	int		len;
+	char    *add;
 	
+	if (atoi(*number) == 0 && atoi(*stock) == 0)
+	{
+		*stock = "";
+		printf("%s", *stock);
+		free(*number);
+		*number = NULL;
+		return ;
+	}
+	len = atoi(*number) - ft_strlen(*stock);
+	free(*number);
+	*number = NULL;
+	
+	if (len <= 0)
+		return ;
+	add = malloc(len + 1);
+	//ft_active_all_1(conv, stock, len, i);
+	if (conv[i] == '0')
+	{
+		memset(add, '0', len);
+		*stock = ft_stock(add, *stock);
+	}
+	
+	else if (ft_isdigit(conv[i]))
+	{
+		memset(add, ' ', len);
+		*stock = ft_stock(add, *stock);
+	
+	}
+	if (conv[i] == '-')
+	{
+		memset(add, ' ', len);
+		*stock = ft_stock(*stock, add);
+	
+	}
+	if (conv[i] == '.')
+	{
+		memset(add, '0', len);
+		*stock = ft_stock(add, *stock);
+	}
 }
 
 void	ft_active(char *stock, char *conv)
@@ -70,6 +99,8 @@ void	ft_active(char *stock, char *conv)
 	number = NULL;
 	count = 0;
 	i--;
+	if (strchr(conv, '.') && conv[0] == '0')
+		conv = ft_delete_zero(conv);
 	while (i >= 0)
 	{
 		if (ft_isdigit(conv[i]))
@@ -97,7 +128,7 @@ void	ft_active(char *stock, char *conv)
 		}
 		if (conv[i] == '.')
 		{
-			if (( number == NULL || atoi(number) == 0 ) && atoi(stock) == 0)
+			if (( number == NULL || atoi(number) == 0 )&& atoi(stock) == 0)
 			{
 				if (number == NULL)
 				{

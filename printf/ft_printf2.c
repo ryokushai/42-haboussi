@@ -6,7 +6,7 @@
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 17:45:57 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/11 09:02:47 by haboussi         ###   ########.fr       */
+/*   Updated: 2019/12/11 13:33:45 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void		ft_printf(char *format, ...)
 	char	*ptr;
 	va_list	arg;
 	int		i;
-	unsigned long long 		j;
+
 	char	*str;
 	char	*conv;
-	unsigned long long		u;
+	int j;
 	int num;
-	char	*flags;
+	//char	*flags;
 	char	*stock;
 	i = 0;
 	va_start(arg, format);
@@ -46,34 +46,31 @@ void		ft_printf(char *format, ...)
 			j = va_arg(arg, int);
 			ft_putchar(j);
 		}
+		/*
 		if (*str == 's')
 		{
-			ptr = va_arg(arg, char *);
-			ft_putstr(ptr);
+			stock = ft_putstr(va_arg(arg, char *));
 		}
+		*/
 		if (*str == 'd')
 		{
 			stock = ft_itoa(va_arg(arg, int));
-			//printf("let's debug this shit %s\n", stock);
 		}
 		if (*str == 'x')
 		{
-			j = va_arg(arg, unsigned long long );
-			ft_adress(j);
+			stock = ft_itohexa(va_arg(arg, unsigned long long));
 		}
 		if (*str == 'X')
 		{
-			j = va_arg(arg, int);
-			ft_itohexa2(j);
+			stock = ft_itohexa2(va_arg(arg, unsigned long long));
 		}
 		if (*str == 'p')
 		{
-			u = va_arg(arg, unsigned long long);
-			ft_adress(u);
+			stock = ft_adress(va_arg(arg, unsigned long long));
 		}
 		str++;
 		ft_active(stock, conv);
-		printf("conv stock %d\n", atoi(stock));
+	//	printf("conv stock %d\n", atoi(stock));
 	}
 	va_end(arg);
 }

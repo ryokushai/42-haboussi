@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_adress.c                                        :+:      :+:    :+:   */
+/*   ft_delete_zero.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/14 19:47:58 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/11 13:37:07 by haboussi         ###   ########.fr       */
+/*   Created: 2019/12/11 10:19:36 by haboussi          #+#    #+#             */
+/*   Updated: 2019/12/11 10:47:08 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_adress(unsigned long long n)
+char	*ft_delete_zero(char *conv)
 {
-	char	*ptr;
-	char	*str;
-	int l;
+	int	len;
+	char *result;
+	int i;
+	int j;
 
-	str = ft_itohexa(n);
-//	ptr = malloc(100);	
-	ptr = ft_stock("0x",str);
-	//ft_putstr(str);
-	return ptr;	
+	i = 1;
+	j = 0;
+	len = ft_strlen(conv);
+	result = malloc(len);
+	while (conv[i])
+	{
+		result[j++] = conv[i++];
+	}
+	return (result);
 }
