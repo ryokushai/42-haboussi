@@ -15,6 +15,6 @@
 int	main()
 {
 	
-	 printf("%07.5d\n", 17);
-	 ft_printf("%07.5d", 17);
+	 printf("%07.20d\n", 17);
+	 ft_printf("%07.20d", 17);
 }

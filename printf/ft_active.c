@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-//char *add;
+char *add;
 
-/*
+
 void	ft_active_all_1(char *conv, char **stock, int len, int i)
 {
 	if (conv[i] == '0')
@@ -41,11 +41,11 @@ void	ft_active_all_1(char *conv, char **stock, int len, int i)
 		*stock = ft_stock(add, *stock);
 	}
 }
-*/
+
 void	ft_active_all(char	*conv, char **stock,char **number, int i)
 {
 	int		len;
-	char    *add;
+	//char    *add;
 	
 	if (atoi(*number) == 0 && atoi(*stock) == 0)
 	{
@@ -62,30 +62,8 @@ void	ft_active_all(char	*conv, char **stock,char **number, int i)
 	if (len <= 0)
 		return ;
 	add = malloc(len + 1);
-	//ft_active_all_1(conv, stock, len, i);
-	if (conv[i] == '0')
-	{
-		memset(add, '0', len);
-		*stock = ft_stock(add, *stock);
-	}
+	ft_active_all_1(conv, stock, len, i);
 	
-	else if (ft_isdigit(conv[i]))
-	{
-		memset(add, ' ', len);
-		*stock = ft_stock(add, *stock);
-	
-	}
-	if (conv[i] == '-')
-	{
-		memset(add, ' ', len);
-		*stock = ft_stock(*stock, add);
-	
-	}
-	if (conv[i] == '.')
-	{
-		memset(add, '0', len);
-		*stock = ft_stock(add, *stock);
-	}
 }
 
 void	ft_active(char *stock, char *conv)
@@ -119,7 +97,6 @@ void	ft_active(char *stock, char *conv)
 				conv[count] = '\0';
 			}
 		}
-	
 		if (conv[i] == '-' && number)
 		{
 			count = 0;
