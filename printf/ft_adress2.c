@@ -14,13 +14,8 @@
 
 char	*ft_adress2(unsigned long long n)
 {
-	char	*ptr;
 	char	*str;
-	int l;
 
 	str = ft_itohexa2(n);
-//	ptr = malloc(100);	
-	//ptr = ft_stock("0x",str);
-	//ft_putstr(str);
-	return str;	
+	return (str);
 }

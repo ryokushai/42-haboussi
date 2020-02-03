@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itohexa.c                                       :+:      :+:    :+:   */
+/*   ft_itohexa3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/14 14:18:31 by haboussi          #+#    #+#             */
-/*   Updated: 2019/11/14 20:34:59 by haboussi         ###   ########.fr       */
+/*   Created: 2019/12/24 14:33:02 by haboussi          #+#    #+#             */
+/*   Updated: 2019/12/24 14:33:04 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	g_f;
-int				g_len;
-char			*g_dest;
-char			*g_tab;
-char			g_s;
-unsigned int	g_i;
-unsigned int	g_j;
+unsigned long long	g_f;
+int					g_len;
+char				*g_dest;
+char				*g_tab;
+char				g_s;
+unsigned long long	g_i;
+unsigned long long	g_j;
 
-char	*ft_itohexa(unsigned int n)
+char	*ft_itohexa3(unsigned long long n)
 {
 	g_j = 0;
 	g_tab = "0123456789abcdef";
-	g_len = ft_lenght2(n);
+	g_len = ft_lenght(n);
 	g_f = n;
 	if (n == 0)
 	{

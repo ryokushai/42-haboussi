@@ -12,98 +12,25 @@
 
 #include "ft_printf.h"
 
+int g_printf;
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	g_printf++;
 }
 
-void	ft_putstr(char *str)
+int		ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
-	{
-		ft_putchar(str[i]);
 		i++;
-	}
-}
-
-char	*ft_strrev(char *str)
-{
-	int		i;
-	int		k;
-	int		j;
-	char	temp;
-
-	i = 0;
-	while (str[i])
-		i++;
-	k = 0;
-	j = i - 1;
-	while (k < j)
-	{
-		temp = str[k];
-		str[k] = str[j];
-		str[j] = temp;
-		k++;
-		j--;
-	}
-	return (str);
-}
-
-int		ft_lenght(int n)
-{
-	int	i;
-	int	s;
-
-	s = n;
-	i = 0;
-	while (s != 0)
-	{
-		s = s / 10;
-		i++;
-	}
-	return i;
-}
-
-char    *ft_stock(char *s1, char *s2)
-{
-    int     i;
-    int     j;
-    char    *ptr;
-
-    i = (s1 ? strlen(s1) : 0);
-    j = strlen(s2);
-    ptr = malloc(sizeof(char) * (i + j + 1));
-    i = 0;
-    j = 0;
-    if (s1)
-    {
-        while (s1[i])
-        {
-            ptr[j++] = s1[i++];
-        }
-    }
-    i = 0;
-    while (s2[i])
-        ptr[j++] = s2[i++];
-    ptr[j] = '\0';
-    return (ptr);
-}
-
-int		ft_strlen( char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
 	return (i);
 }
-int		ft_strlcpy(char *dst,  char *src, int n)
+
+int		ft_strlcpy(char *dst, char *src, int n)
 {
 	int		count;
 	int		j;
@@ -126,7 +53,7 @@ int		ft_strlcpy(char *dst,  char *src, int n)
 	return (len_src);
 }
 
-char	*ft_substr(char *s,  int start, int len)
+char	*ft_substr(char *s, int start, int len)
 {
 	char	*str;
 
@@ -142,7 +69,6 @@ char	*ft_substr(char *s,  int start, int len)
 	return (str);
 }
 
-
 char	*ft_strchr(char *str, int c)
 {
 	int		i;
@@ -155,9 +81,7 @@ char	*ft_strchr(char *str, int c)
 	while (ptr[i] != c)
 	{
 		if (ptr[i] == '\0')
-		{
 			return (NULL);
-		}
 		i++;
 	}
 	return (ptr + i);

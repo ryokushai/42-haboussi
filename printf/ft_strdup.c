@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conditions.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/24 14:55:44 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/20 08:54:45 by haboussi         ###   ########.fr       */
+/*   Created: 2019/12/13 17:45:40 by haboussi          #+#    #+#             */
+/*   Updated: 2019/12/13 17:45:41 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_conditions(char *str)
+char	*ft_strdup(char *src)
 {
-	char	*tab;
-	char	*result;
-	char	*ktr;
-	int		count;
+	int		i;
+	char	*dest;
+	char	*src2;
 
-	count = 0;
-	ktr = strdup(str);
-	tab = "cspidu%xX";
-	while (*ktr)
+	src2 = (char *)src;
+	i = 0;
+	while (src[i])
+		i++;
+	dest = (char *)malloc(sizeof(char) * (i + 1));
+	if (dest == NULL)
+		return (NULL);
+	else
+		ft_strlcpy(dest, src, i + 1);
+	return (dest);
+}
+
+void	*ft_memset(void *b, int c, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
 	{
-		if (!(strchr(tab, *ktr)))
-		{
-			count++;
-		}
-		else
-		{
-			break ;
-		}
-		ktr++;
+		*((unsigned char *)b + i) = (unsigned char)c;
+		i++;
 	}
-	result = ft_substr(str, 0, count);
-	return (result);
+	return (b);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_active.c                                        :+:      :+:    :+:   */
+/*   ft_active_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 22:12:36 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/11 09:22:07 by haboussi         ###   ########.fr       */
+/*   Created: 2020/02/02 14:00:18 by haboussi          #+#    #+#             */
+/*   Updated: 2020/02/02 14:00:19 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*g_add;
 int		g_count;
 
-void	ft_while_part_two_int(char *conv, char **stock, char **number, int i)
+void	ft_while_part_two_int3(char *conv, char **stock, char **number, int i)
 {
 	if (conv[i] == '-' && *number)
 	{
@@ -24,7 +24,7 @@ void	ft_while_part_two_int(char *conv, char **stock, char **number, int i)
 		if (ft_skip_minus(conv, i))
 		{
 			*number = ft_strrev(*number);
-			ft_active_all(conv, stock, number, i);
+			ft_active_all3(conv, stock, number, i);
 		}
 		else
 		{
@@ -34,14 +34,14 @@ void	ft_while_part_two_int(char *conv, char **stock, char **number, int i)
 	}
 }
 
-void	ft_while_part_one_int(char *conv, char **stock, char **number, int i)
+void	ft_while_part_one_int3(char *conv, char **stock, char **number, int i)
 {
 	if (conv[i] == '0' && *number && i == 0)
 	{
 		(*number)[g_count] = '\0';
 		g_count = 0;
 		*number = ft_strrev(*number);
-		ft_active_all(conv, stock, number, i);
+		ft_active_all3(conv, stock, number, i);
 	}
 	else if (ft_isdigit(conv[i]))
 	{
@@ -56,12 +56,12 @@ void	ft_while_part_one_int(char *conv, char **stock, char **number, int i)
 			(*number)[g_count] = '\0';
 			g_count = 0;
 			*number = ft_strrev(*number);
-			ft_active_all(conv, stock, number, i);
+			ft_active_all3(conv, stock, number, i);
 		}
 	}
 }
 
-void	ft_active_all_1(char *conv, char **stock, int len, int i)
+void	ft_active_all_13(char *conv, char **stock, int len, int i)
 {
 	g_add = malloc(len + 1);
 	if (conv[i] == '0')
@@ -79,38 +79,26 @@ void	ft_active_all_1(char *conv, char **stock, int len, int i)
 		*stock = ft_stock(*stock, g_add);
 	}
 	if (conv[i] == '.')
-		ft_while_part_four_int(&g_add, stock, len);
+		ft_while_part_four_int3(&g_add, stock, len);
 }
 
-void	ft_active_all(char *conv, char **stock, char **number, int i)
+void	ft_active_all3(char *conv, char **stock, char **number, int i)
 {
 	int	len;
-	int	j;
 
-	if (ft_atoi(*number) == 0 && ft_atoi(*stock) == 0
-	&& (j = ft_check_zero(*stock)))
-	{
-		if (j == 2)
-			(*stock)[2] = '\0';
-		else
-			*stock = "";
-		free(*number);
-		*number = NULL;
-		return ;
-	}
 	len = ft_atoi(*number) - ft_strlen(*stock);
 	free(*number);
 	*number = NULL;
-	if (len <= 0)
+	if (len < 0)
 		return ;
 	if (*stock[0] == '-')
 		g_add = malloc(len + 2);
 	else
 		g_add = malloc(len + 1);
-	ft_active_all_1(conv, stock, len, i);
+	ft_active_all_13(conv, stock, len, i);
 }
 
-void	ft_active(char *stock, char *conv)
+void	ft_active3(char *stock, char *conv)
 {
 	int		i;
 	char	*number;
@@ -126,11 +114,11 @@ void	ft_active(char *stock, char *conv)
 		conv = ft_delete_zero(conv);
 	while (i >= 0)
 	{
-		ft_while_part_one_int(conv, &stock, &number, i);
-		ft_while_part_two_int(conv, &stock, &number, i);
+		ft_while_part_one_int3(conv, &stock, &number, i);
+		ft_while_part_two_int3(conv, &stock, &number, i);
 		if (conv[i] == '.')
 		{
-			ft_while_part_three_int(conv, &stock, &number, i);
+			ft_while_part_threex(conv, &stock, &number, i);
 		}
 		i--;
 	}

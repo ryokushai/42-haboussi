@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_precision.c                                     :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 20:55:50 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/08 05:45:38 by haboussi         ###   ########.fr       */
+/*   Created: 2019/12/16 05:56:28 by haboussi          #+#    #+#             */
+/*   Updated: 2019/12/16 05:56:28 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_precision(char *str)
+char	*ft_char(char s)
 {
-	char	*tab;
-	char	*precision;
-	int		count;
-	int		i;
-	int		j;
-	
-	i = 0;
-	count = 0;
-	if(!(tab = strchr(str, '.')))
+	char	*str;
+
+	str = malloc(2);
+	if (s == '\0')
 	{
-		return (NULL);
+		*str = '\0';
+		return (str);
 	}
-	tab++;
-	while ((ft_isdigit(tab[i])))
-	{
-		count++;
-		i++;
-	}
-	precision = malloc(sizeof(char) * (count + 1));
-	ft_strlcpy(precision, tab, count + 1);
-	return precision;
+	str[1] = '\0';
+	str[0] = s;
+	return (str);
 }

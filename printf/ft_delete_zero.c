@@ -14,10 +14,10 @@
 
 char	*ft_delete_zero(char *conv)
 {
-	int	len;
-	char *result;
-	int i;
-	int j;
+	int		len;
+	char	*result;
+	int		i;
+	int		j;
 
 	i = 1;
 	j = 0;
@@ -27,5 +27,44 @@ char	*ft_delete_zero(char *conv)
 	{
 		result[j++] = conv[i++];
 	}
+	result[j] = '\0';
+	return (result);
+}
+
+char	*ft_delete_minus(char *stock)
+{
+	int		len;
+	char	*result;
+	int		i;
+	int		j;
+
+	i = 1;
+	j = 0;
+	len = ft_strlen(stock);
+	result = malloc(len);
+	while (stock[i])
+	{
+		result[j++] = stock[i++];
+	}
+	result[j] = '\0';
+	return (result);
+}
+
+char	*ft_delete_point(char *conv)
+{
+	char	*result;
+	int		len;
+	int		i;
+	int		j;
+
+	j = 0;
+	i = 0;
+	len = ft_strlen(conv);
+	result = malloc(len);
+	while (conv[i] != '.')
+	{
+		result[j++] = conv[i++];
+	}
+	result[j] = '\0';
 	return (result);
 }

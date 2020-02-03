@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags.c                                         :+:      :+:    :+:   */
+/*   ft_utils3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haboussi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 18:16:35 by haboussi          #+#    #+#             */
-/*   Updated: 2019/12/07 20:55:31 by haboussi         ###   ########.fr       */
+/*   Created: 2020/02/03 09:23:02 by haboussi          #+#    #+#             */
+/*   Updated: 2020/02/03 09:23:05 by haboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_flags(char *str)
+int		ft_atoi(char *str)
 {
-	char	*tab;
-	char	*flags;
-	int		count;
-	
-	count = 0;
-	tab = "-0";
-	while (ft_strchr(tab,str[count]))
+	int			i;
+	int			s;
+	long long	res;
+	char		*st;
+
+	st = (char *)str;
+	i = 0;
+	s = 1;
+	res = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+		s = s * -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		count++;
+		res = res * 10 + str[i] - 48;
+		i++;
 	}
-	flags = malloc(sizeof(char) * (count + 1));	
-	ft_strlcpy(flags, str, count + 1);
-	return flags;
+	if (res < 0 && s < 0)
+		return (0);
+	if (res < 0 && s > 0)
+		return (-1);
+	return (res * s);
 }
